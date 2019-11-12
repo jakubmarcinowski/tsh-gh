@@ -28,7 +28,7 @@ As you could probably see, the project lacks some more or less important feature
     
     When the value is not valid, display a red border around the field. -->
 
-2. The History block is just a mockup. Make it dynamic. After user data has been loaded, use the below URL:
+<!-- 2. The History block is just a mockup. Make it dynamic. After user data has been loaded, use the below URL:
     `https://api.github.com/users/{username}/events/public` 
     to load user's latest events. Populate the history list with events gotten from the above step. 
     
@@ -46,7 +46,7 @@ As you could probably see, the project lacks some more or less important feature
     **Warning:** be aware that Github uses request limiting. When it occurs, try to mitigate it. Or just make 
     your code perfect at first time :)
     ```
-
+ -->
 3. Hide fake Profile and History fields until the data is being loaded.   
 We've prepare a spinner element (in HTML) to indicate loading data, but forgot to use it, Can you make it visible 
 when there are pending requests?

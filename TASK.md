@@ -55,9 +55,9 @@ when there are pending requests?
     * below 768px: make it 100% (as it is now)
     * 768-1280px: make it 50%
     * 1280px and above: make it 30%
-
+<!-- 
 5. The production build is quite big: **556kB**. Can you optimize it to fit in less than 350kB? The less 
-the better.
+the better. -->
 
 
 # Rules

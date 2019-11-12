@@ -8,10 +8,11 @@ const path = require('path'),
   babel = require("babel-polyfill");
 const extractPlugin = new ExtractTextPlugin({ filename: './assets/css/app.css' });
 
+
 const config = {
 
   context: path.resolve(__dirname, 'src'),
-
+  devtool: '',
   entry: {
     app: ["babel-polyfill", './index.js'],
   },
@@ -22,9 +23,7 @@ const config = {
   },
 
   module: {
-    rules: [
-
-      {
+    rules: [{
         test: /\.js$/,
         include: /src/,
         exclude: /node_modules/,
@@ -78,6 +77,7 @@ const config = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({ template: 'index.html' }),
     extractPlugin,
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new PurifyCSSPlugin({
       paths: glob.sync(path.join(__dirname, 'src/*')),
       purifyOptions: { info: true, minify: false }
@@ -92,7 +92,6 @@ const config = {
     open: true
   },
 
-  devtool: 'inline-source-map'
 
 };
 

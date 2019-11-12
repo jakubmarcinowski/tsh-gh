@@ -11,10 +11,10 @@ We'll be grateful for all your thoughts on it.   -->
 
 ## Step 2: Bug hunt
 
-1. For some reason the app doesn't fully load data. This happens on all major browsers: Chrome, Firefox, IE11.  
+<!-- 1. For some reason the app doesn't fully load data. This happens on all major browsers: Chrome, Firefox, IE11.  
 When you resolve the issue, make sure it works on all mentioned browsers
-
-2. The user image in the history block is not aligned properly. Can you do something about it? 
+ -->
+<!-- 2. The user image in the history block is not aligned properly. Can you do something about it?  -->
 
 
 ## Step 3: New features

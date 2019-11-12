@@ -32,8 +32,17 @@ $med: 1280px;
   margin-bottom: 8px;
 }
 
-.gh-username img {
-  width: 32px;
+.gh-username {
+  & img {
+    height: 16px;
+  }
+
+  & img,
+  a {
+    position: relative;
+    display: inline-block;
+    top: 50%;
+  }
 }
 
 #profile-bio {

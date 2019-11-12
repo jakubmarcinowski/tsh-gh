@@ -4,9 +4,9 @@ Hi there, stranger! I'm glad you can help us with our messy code.
 
 ## Step 1: Code Review
 
-Create empty repository and make Pull Request with the whole codebase you've got from us. Then make a code review 
+<!-- Create empty repository and make Pull Request with the whole codebase you've got from us. Then make a code review 
 for it. Don't hesitate to point out each concern - we want to make the code eventually perfect! 
-We'll be grateful for all your thoughts on it.  
+We'll be grateful for all your thoughts on it.   -->
 
 
 ## Step 2: Bug hunt

@@ -1,19 +1,45 @@
 @import "~bulma";
 @import "~bulma-timeline";
 
+$min: 768px;
+$med: 1280px;
+
+
+@mixin mQ($arg...) {
+
+  @if length($arg)==1 {
+    @media screen and (min-width: nth($arg, 1)) {
+      @content;
+    }
+  }
+
+  @if length($arg)==2 {
+    @media screen and (max-width: nth($arg, 1)) and (min-width: nth($arg, 2)) {
+      @content;
+    }
+  }
+
+}
+
+.is-1-tablet {
+  @include mQ($min) {
+    display: flex;
+  }
+}
+
 .navbar {
   border-bottom: 1px solid #eee;
   margin-bottom: 8px;
 }
 
-.gh-username img{
+.gh-username img {
   width: 32px;
 }
 
-#profile-bio{
-  margin-top:10px;
+#profile-bio {
+  margin-top: 10px;
 }
 
 .timeline .timeline-item {
-  padding-bottom:1em;
+  padding-bottom: 1em;
 }

@@ -1,17 +1,19 @@
 const path = require('path'),
+  glob = require('glob'),
   webpack = require('webpack'),
   CleanWebpackPlugin = require('clean-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const extractPlugin = new ExtractTextPlugin({filename: './assets/css/app.css'});
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  PurifyCSSPlugin = require('purifycss-webpack'),
+  babel = require("babel-polyfill");
+const extractPlugin = new ExtractTextPlugin({ filename: './assets/css/app.css' });
 
 const config = {
 
   context: path.resolve(__dirname, 'src'),
 
   entry: {
-    app: './index.js'
+    app: ["babel-polyfill", './index.js'],
   },
 
   output: {
@@ -29,7 +31,7 @@ const config = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['env']
+            presets: ['es2015', 'stage-0']
           }
         }
       },
@@ -40,33 +42,29 @@ const config = {
       {
         test: /\.s?css$/,
         use: extractPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
-              }
-            }, {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true
-              }
+          use: [{
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
             }
-          ],
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }],
           fallback: 'style-loader'
         })
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: './assets/media/'
-            }
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: './assets/media/'
           }
-        ]
+        }]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -78,8 +76,12 @@ const config = {
 
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({template: 'index.html'}),
-    extractPlugin
+    new HtmlWebpackPlugin({ template: 'index.html' }),
+    extractPlugin,
+    new PurifyCSSPlugin({
+      paths: glob.sync(path.join(__dirname, 'src/*')),
+      purifyOptions: { info: true, minify: false }
+    }),
   ],
 
   devServer: {

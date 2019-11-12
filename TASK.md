@@ -22,11 +22,11 @@ When you resolve the issue, make sure it works on all mentioned browsers
 As you could probably see, the project lacks some more or less important features. Can you help us making it done?
  
 
-1. The username field is missing validation. Prepare a simple validation for the input field:
+<!-- 1. The username field is missing validation. Prepare a simple validation for the input field:
     * not-empty
     * allow only characters: `a-z`, `0-9`, `-`, `_`
     
-    When the value is not valid, display a red border around the field.
+    When the value is not valid, display a red border around the field. -->
 
 2. The History block is just a mockup. Make it dynamic. After user data has been loaded, use the below URL:
     `https://api.github.com/users/{username}/events/public` 

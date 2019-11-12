@@ -10,9 +10,18 @@ export class App {
     $('.load-username').on('click', function() {
       const userName = $('.username.input').val();
 
-      self.fetchUser(userName).then(() => {
-        self.update_profile();
-      })
+
+      if (self.validate(userName)) {
+        $('.username.input').removeClass('is-danger');
+        self.fetchUser(userName).then(() => {
+          self.update_profile();
+        }).catch(() => {
+          self.handleInputError('.username.input');
+        });
+
+      } else {
+        self.handleInputError('.username.input');
+      }
 
     })
   }
@@ -22,7 +31,14 @@ export class App {
     this.profile = response.data;
   };
 
+  handleInputError(input) {
+    $(input).addClass('is-danger');
+  }
 
+  validate(string) {
+    const pattern = /^[a-z0-9\_\-]+$/;
+    return pattern.test(string);
+  }
 
 
   update_profile() {

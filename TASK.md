@@ -51,10 +51,10 @@ As you could probably see, the project lacks some more or less important feature
 We've prepare a spinner element (in HTML) to indicate loading data, but forgot to use it, Can you make it visible 
 when there are pending requests?
 
-4. Currently the Profile column has width of 1/3 screen. Let's change it's size:
+<!-- 4. Currently the Profile column has width of 1/3 screen. Let's change it's size:
     * below 768px: make it 100% (as it is now)
     * 768-1280px: make it 50%
-    * 1280px and above: make it 30%
+    * 1280px and above: make it 30% -->
 <!-- 
 5. The production build is quite big: **556kB**. Can you optimize it to fit in less than 350kB? The less 
 the better. -->

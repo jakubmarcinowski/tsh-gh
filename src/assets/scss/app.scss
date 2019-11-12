@@ -21,6 +21,18 @@ $med: 1280px;
 
 }
 
+.profile-container {
+  flex: none;
+
+  @include mQ($min) {
+    width: 50%;
+  }
+
+  @include mQ($med) {
+    width: 30%;
+  }
+}
+
 .is-1-tablet {
   @include mQ($min) {
     display: flex;

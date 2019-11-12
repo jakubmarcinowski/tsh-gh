@@ -13,10 +13,12 @@ export class App {
 
       if (self.validate(userName)) {
         $('.username.input').removeClass('is-danger');
+        self.handleLoading(false);
         self.fetchUser(userName).then(() => {
           self.update_profile();
           self.fetchHistory(userName).then(() => {
             self.update_history();
+            self.handleLoading(true);
           });
         }).catch(() => {
           self.handleInputError('.username.input');
@@ -43,6 +45,18 @@ export class App {
   handleInputError(input) {
     $(input).addClass('is-danger');
   };
+
+  handleLoading(active) {
+    if (active) {
+      $('.loader').addClass('is-hidden');
+      $('.profile').removeClass('is-hidden');
+      $('.timeline').removeClass('is-hidden');
+    } else {
+      $('.loader').removeClass('is-hidden');
+      $('.profile').addClass('is-hidden');
+      $('.timeline').addClass('is-hidden');
+    }
+  }
 
   formatDate(timestamp) {
     const date = new Date(timestamp);
